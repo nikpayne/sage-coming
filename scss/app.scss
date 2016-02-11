@@ -7,25 +7,189 @@
 
 @function letterspacing($kerning, $pixelHeight) {
   $rem: $pixelHeight/16;
-  $size: $kerning/1000;
+  $size: $kerning/1300;
   @return #{$rem*$size}rem;
 }
+
+$nav-purple: #352d2f;
+$pink: #f63c3c;
 
 * { box-sizing: border-box; }
 
 html { font-size: 16px; }
 
 body {
-  padding: 0;
+  padding: rem(200px) 0 0 0;
   margin:0;
+
   font-family: 'Titillium Web', sans-serif;
   font-size: rem(16px);
+
+  background: url('../img/background.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'teko', sans-serif;
   font-weight: 300;
   text-transform: uppercase;
+}
+h1 {
+  max-width: rem(600px);
+  margin: 0;
+  font-size: rem(120px);
+  letter-spacing: letterspacing(150, 120);
+}
+b {
+  display: block;
+  max-width: rem(600px);
+  margin: 0;
+
+  opacity: .7;
+  font-size: rem(26px);
+  color: white;
+  font-weight: 300;
+}
+p {
+  display: block;
+  max-width: rem(700px);
+  margin: 0;
+
+  opacity: .5;
+  color: white;
+}
+
+.main {
+  position: relative;
+  z-index: 100;
+
+  &__container {
+    max-width: rem(1200px);
+    margin: 0 auto;
+    padding: 0 rem(15px);
+  }
+  h1 {
+    color: white;
+  }
+  h2 {
+    color: white;
+    font-size: rem(30px);
+    letter-spacing: letterspacing(75,30);
+    margin-bottom: rem(10px);
+  }
+  b {
+    margin-bottom: rem(20px);
+  }
+  aside {
+    max-width: rem(470px);
+    min-height: rem(450px);
+
+    p {
+      margin-bottom: rem(30px);
+    }
+    input {
+      height: rem(50px);
+      width: rem(340px);
+      background: white;
+      border: 1px solid #e5e5e5;
+      outline: none;
+      font-size: rem(16px);
+      padding: 0 1rem;
+      font-family: 'titillium web', sans-serif;
+      margin-bottom: 1rem;
+    }
+    button {
+      height: rem(50px);
+      width: rem(120px);
+      background: $pink;
+      color: white;
+      font-family: 'teko', sans-serif;
+      font-size: rem(20px);
+      letter-spacing: letterspacing(150, 20);
+      text-transform: uppercase;
+      outline: none;
+      border: none;
+      vertical-align: top;
+    }
+    h3 {
+      color: white;
+      letter-spacing: letterspacing(120,20);
+      font-size: rem(20px);
+      margin-bottom: rem(0px);
+
+      a {
+        position: relative;
+        color: white;
+        text-decoration: none;
+        i {
+          margin-right: 1rem;
+          font-size: rem(28px);
+        }
+      }
+    }
+    ul {
+      margin-left: none;
+      list-style: none;
+      position: relative;
+
+      li {
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        max-width: rem(260px);
+        font-size: rem(14px);
+        margin-left: 3rem;
+        p {
+          margin-bottom: rem(10px);
+        }
+        time {
+          color:#959595;
+          text-transform: uppercase;
+          font-family: 'teko', sans-serif;
+          font-size: rem(18px);
+          letter-spacing: letterspacing(50,18);
+
+        }
+        &:first-child {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  max-width: rem(1200px);
+  padding: rem(30px) rem(15px);
+  margin: 0 auto;
+  color: #959595;
+  font-size: rem(13px);
+  letter-spacing: letterspacing(25,13);
+  a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      color: $pink;
+    }
+  }
+  ul {
+    float: right;
+    list-style: none;
+    margin: 0;
+    li {
+      display: inline-block;
+      margin-left: 1rem;
+      a {
+        text-decoration: none;
+        color: #959595;
+
+      }
+    }
+  }
 }
 
 @import "nav";
